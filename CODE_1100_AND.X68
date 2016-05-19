@@ -1,5 +1,5 @@
 *-----------------------------------------------------------
-* Title      :  CODE_1000_OR
+* Title      :  CODE_1000_AND
 * Written by :  TYLER QUAYLE
 * Date       :  5/15/2016
 * Description:
@@ -90,6 +90,7 @@ LOAD_TO_PRINT_AND
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 *~Font name~Courier New~
 *~Font size~10~
