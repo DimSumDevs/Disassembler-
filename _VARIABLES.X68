@@ -37,6 +37,8 @@ CODE_1100_AND       EQU $21200                              *
                                                             *
 CODE_0101_ADDQ      EQU $21000                              *                                                            
                                                             *
+CODE_1101_ADD       EQU $22000                              *
+                                                            *
 CODE_1011_CMP       EQU $27000                              *
                                                             *
 CODE_1110           EQU $31000                              *
@@ -65,6 +67,7 @@ MEM_FROM            EQU $1030       * NEEDS TO BE FILLED FROM USER INPUT
 MEM_TO              EQU $1036       * NEEDS TO BE FILLED FROM USER INPUT
 
 OFFSET              EQU $102C
+
 
 
 
