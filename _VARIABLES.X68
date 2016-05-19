@@ -28,6 +28,7 @@ CODE_0100_RTS       EQU $20400                              *
 CODE_0100_JSR       EQU $20500                              *
 CODE_0100_STOP      EQU $20600                              *
 CODE_0100_LEA       EQU $20700                              *
+CODE_0100_MOVEM     EQU $20900                              *
                                                             *
 CODE_0111_MOVEQ     EQU $26000                              *
                                                             *
@@ -67,6 +68,8 @@ MEM_FROM            EQU $1030       * NEEDS TO BE FILLED FROM USER INPUT
 MEM_TO              EQU $1036       * NEEDS TO BE FILLED FROM USER INPUT
 
 OFFSET              EQU $102C
+
+
 
 
 

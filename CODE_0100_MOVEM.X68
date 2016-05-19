@@ -191,7 +191,7 @@ DLM_SETUP
     CLR.W   D2                  *CLEAR D2 FOR COUNTER
     MOVE.W  #7,D2
 DATA_LOOP_MINUS
-    CMP.W   #7,D2               *COMPARE COUNTER TO 7
+    CMP.W   #0,D2               *COMPARE COUNTER TO 7
     BEQ MASK_RTS                *BOTH LOOPS DONE, GOTO RETURN
     SUB.W   #1,D2               *DECCREMENT COUNTER
     LSR.W   #1,D7               *SHIFT MASK RIGHT 1 BIT
@@ -210,10 +210,11 @@ DATA_LOOP_MINUS
     MOVE.B      #$2F, (A1)+     *LOAD '/' INTO A1
     ADD.W       #1,D1           * INC CHAR COUNT
     
-    BRA DATA_LOOP_PLUS          *GO BACK TO TOP OF LOOP
+    BRA DATA_LOOP_MINUS          *GO BACK TO TOP OF LOOP
 
 MASK_RTS
     RTS
+
 
 
 

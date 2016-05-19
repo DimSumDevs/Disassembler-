@@ -12,9 +12,13 @@ CODE_0100_START
     BTST.L      #8, D5
     BNE         LEA_CODE
     
+    BTST.L      #9, D5
+    BEQ         MOVEM_CODE
+    
     LSL.W       #4, D5          * XXXXCCCXXXXXXXX -> CCCXXXXXXXXX0000 
     MOVE.B      #12, D6         * MOVE 12 INTO D6 FOR FOLLOWING LSR
     LSR.W       D6, D5          * CCCXXXXXXXX0000 -> 0000000000000CCC
+    * WHERE CCC WILL DISTINGUISH WHICH 0100 OPCODE IT IS
     
 
     
@@ -34,6 +38,10 @@ CLR_CODE
 
 LEA_CODE
     JSR         CODE_0100_LEA
+    BRA         RETURN_0100
+    
+MOVEM_CODE
+    JSR         CODE_0100_MOVEM
     BRA         RETURN_0100
 
 NOP_STOP_RTS
@@ -72,6 +80,7 @@ INVALID_0100
 
 RETURN_0100
     RTS                         * RETURN TO MAIN
+
 
 
 
