@@ -14,7 +14,7 @@ begin		EQU	$00007000	* ORG and END address
 		ORG	begin
 
 *NOP
-                
+                MOVEM.W A0-A7/D0-D7,(A3)
                 NOP
 *MOVE, needs all three sizes and all address types
                 MOVE.B  D3,D4
@@ -93,7 +93,7 @@ begin		EQU	$00007000	* ORG and END address
                 MOVEM.W  D0/D2/D4/D6/A1/A3/A5/A7,$7500
                 
                 MOVEM.W D0,(A3)
-                MOVEM.W D1,-(A3)
+                MOVEM.W A2/D1,-(A3)
                 MOVEM.W D2,$7500
                 MOVEM.W D3,$F8000
                 NOP
@@ -225,6 +225,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 
