@@ -13,6 +13,7 @@ begin		EQU	$00007000	* ORG and END address
 
 		ORG	begin
 
+<<<<<<< HEAD
 *NOP           
                 ADDA.W     $2222,A2
                 ADD.B      D3,$13
@@ -45,6 +46,10 @@ begin		EQU	$00007000	* ORG and END address
                 CMP.B     #10, D1
                 CMP.B     $1, D1
 
+=======
+*NOP
+                MOVEM.W A0-A7/D0-D7,(A3)
+>>>>>>> origin/master
                 NOP
 *MOVE, needs all three sizes and all address types
                 MOVE.B  D3,D4
@@ -66,8 +71,6 @@ begin		EQU	$00007000	* ORG and END address
                 MOVE.W  #$45,D4
                 MOVE.W  #$4567,D4
                 MOVE.W  #$0067,D4
-                
-                MOVEQ.L #$45, D4
                 
                 MOVE.L  A3,(A3)
                 MOVE.L  $7500,(A3)+
@@ -99,6 +102,7 @@ begin		EQU	$00007000	* ORG and END address
                 MOVEA.L (A2),A3
                 MOVEA.L (A2)+,A3
                 MOVEA.L -(A2),A3
+                NOP
                 MOVEA.L $7500,A3
                 MOVEA.L $F8000,A3
                 MOVEA.L #$3456,A3
@@ -112,7 +116,31 @@ begin		EQU	$00007000	* ORG and END address
                 MOVEQ   #45,D4
                 NOP
 *MOVEM
+                MOVEM.W  $7500,D0-D5
+                MOVEM.W  $F8000,A0-A5
                 
+                MOVEM.W (A3),D0-D3
+                MOVEM.W  D0-D3,(A3)
+                MOVEM.W  D3-D0,(A3)
+                MOVEM.W  D3-D0,(A4)
+                MOVEM.W  A3-A0,(A3)
+                MOVEM.W  D4-D0,(A3)
+                MOVEM.W  D0/D2/D4/D6/A1/A3/A5/A7,$7500
+                
+                MOVEM.W D0,(A3)
+                MOVEM.W A2/D1,-(A3)
+                MOVEM.W D2,$7500
+                MOVEM.W D3,$F8000
+                NOP
+                MOVEM.W D0-D4,(A3)
+                MOVEM.W A2/D2,-(A3)
+                MOVEM.W D2-D5/A4,$7500
+                MOVEM.W A1-A4/D3,$F8000
+
+                MOVEM.L D0-D7/A0-A6,-(A7)
+                MOVEM.L A5-A2/D1-D5,(A1)
+                MOVEM.L A4/D4-D0,$7500
+                MOVEM.L A4,$F8000
                 NOP
 *ADD
                 ADDI.W	#$4000,D0
@@ -261,6 +289,7 @@ compares        CMP.B	(A3),D5
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -275,6 +304,8 @@ compares        CMP.B	(A3),D5
 
 
 
+=======
+>>>>>>> origin/master
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~
