@@ -14,8 +14,10 @@ begin		EQU	$00007000	* ORG and END address
 		ORG	begin
 
 
-*NOP           
-                SUB.W       $2323,D3
+*NOP            
+                MULU.W      $11,D3
+                DIVU.W      $12,D3
+
                 SUB.B      D3,$12
                 ADDA.W     $2222,A2
                 ADD.B      D3,$13
@@ -262,6 +264,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 
