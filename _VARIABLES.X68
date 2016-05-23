@@ -31,7 +31,8 @@ CODE_0100_LEA       EQU $20700                              *
                                                             *
 CODE_0111_MOVEQ     EQU $26000                              *
                                                             *
-CODE_1000_OR        EQU $21100                              *
+CODE_1000_OR        EQU $21100
+CODE_1001_SUB       EQU $23000                              *
                                                             *
 CODE_1100_AND       EQU $21200                              *
                                                             *
@@ -67,6 +68,7 @@ MEM_FROM            EQU $1030       * NEEDS TO BE FILLED FROM USER INPUT
 MEM_TO              EQU $1036       * NEEDS TO BE FILLED FROM USER INPUT
 
 OFFSET              EQU $102C
+
 
 
 
