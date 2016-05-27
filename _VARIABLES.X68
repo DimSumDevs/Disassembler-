@@ -14,7 +14,7 @@ DECODE_SORT         EQU $16200                              *
 CONVERT_HEX_ASCII   EQU $16300                              *
 ABS_DECODE          EQU $16500                              *
 IMM_DECODE          EQU $17000                              *
-                                                            *
+CODE_0000_ADDI      EQU $20100                                                            *
 CODE_0001_MOVE_B    EQU $30000                              *
                                                             *
 CODE_0010_MOVE_L    EQU $30100                              *
@@ -68,6 +68,8 @@ MEM_FROM            EQU $1030       * NEEDS TO BE FILLED FROM USER INPUT
 MEM_TO              EQU $1036       * NEEDS TO BE FILLED FROM USER INPUT
 
 OFFSET              EQU $102C
+
+
 
 
 
