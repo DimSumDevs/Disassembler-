@@ -48,7 +48,7 @@ MOVEM_START:                  ; first instruction of program
     MOVE.W  D5, SOURCE_REG
     
 *get the mask from memory and load it into D7
-    ADDA.W  #2,A4
+    ADDA.L  #2,A4
     MOVE.W  (A4),D7
     
 *use size bit to add '.', 'W' or 'L', and ' ' to A1
@@ -151,7 +151,6 @@ ADDRESS_LOOP_PLUS
     
     CLR.W   D3                  *NEED D3 FOR CALCULATION
     MOVE.B  D2,D3               *MOVE ITERATION NUMBER INTO D3
-    SUB.B   #1,D3               *SUBRACT 1 FROM D3 TO ACOUNT FOR THE INCREMENT OF THE LOOP
     ADD.B   #$30,D3             *ADD 30 TO GET ASCII FOR REGISTER NUMBER
     
     MOVE.B  D3,(A1)+            *LOAD REGISTER NUMBER INTO A1
@@ -213,6 +212,8 @@ DATA_LOOP_MINUS
 
 MASK_RTS
     RTS
+
+
 
 
 

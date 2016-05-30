@@ -14,7 +14,9 @@ begin		EQU	$00007000	* ORG and END address
 		ORG	begin
 
 
-                           
+                BCC	compares		
+		BGT	compares		
+		BLE	compares  
                 ADDI.B      #$11, D3
 *                ADDI.W      #$1234,D1
 *                ADDI.L      #$12CDEF43,D2
@@ -268,6 +270,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 

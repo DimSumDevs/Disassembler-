@@ -9,12 +9,13 @@
 ******************SUBROUTINE LOCATIONS***********************    
 MAIN                EQU $100                                *
 _INIT               EQU $900                                *
+USER_INPUT          EQU $15000
 DECODE_MAIN         EQU $16000                              *
 DECODE_SORT         EQU $16200                              *
 CONVERT_HEX_ASCII   EQU $16300                              *
 ABS_DECODE          EQU $16500                              *
 IMM_DECODE          EQU $17000                              *
-CODE_0000_ADDI      EQU $20100                                                            *
+CODE_0000_ADDI      EQU $20100                              *                             *
 CODE_0001_MOVE_B    EQU $30000                              *
                                                             *
 CODE_0010_MOVE_L    EQU $30100                              *
@@ -28,6 +29,8 @@ CODE_0100_RTS       EQU $20400                              *
 CODE_0100_JSR       EQU $20500                              *
 CODE_0100_STOP      EQU $20600                              *
 CODE_0100_LEA       EQU $20700                              *
+
+CODE_0110_BCC       EQU $24000
                                                             *
 CODE_0111_MOVEQ     EQU $26000                              *
                                                             *
@@ -50,7 +53,7 @@ CODE_1110           EQU $31000                              *
 *******************VARIABLES*********************************
 
 *   USE VALUES BETWEEN 1010-1060
-A1LOC               EQU $1040       * USED FOR 'OUTPUT BUFFER' FOR A1
+A1LOC               EQU $1060       * USED FOR 'OUTPUT BUFFER' FOR A1
 PRINTER             EQU $1080       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
 FOR_ABS             EQU $9100       * USED IN ABS_DECODE FOR LOOPING
 
@@ -65,9 +68,12 @@ _CONVERT            EQU $1018       * USED FOR CONVERT_HEX_ASCII VALUES
 _SIZE               EQU $101C       * USED FOR IMME ADDR       
 _TOTAL              EQU $1050       * USED TO COUNT TOTAL OPCODES
 MEM_FROM            EQU $1030       * NEEDS TO BE FILLED FROM USER INPUT
-MEM_TO              EQU $1036       * NEEDS TO BE FILLED FROM USER INPUT
+MEM_TO              EQU $1040       * NEEDS TO BE FILLED FROM USER INPUT
+STORE_INPUT         EQU $1070
 
 OFFSET              EQU $102C
+
+
 
 
 
