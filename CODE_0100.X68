@@ -7,16 +7,19 @@
 
     ORG CODE_0100
 CODE_0100_START
+    
+
     MOVE.W      (A4),D5         * Give D5 value at A4
                                 * WHERE CCC WILL DISTINGUISH WHICH 0100 OPCODE IT IS
     BTST.L      #8, D5
     BNE         LEA_CODE
     
+    BTST.L      #9,D5
+    BEQ         MOVEM_CODE
+    
     LSL.W       #4, D5          * XXXXCCCXXXXXXXX -> CCCXXXXXXXXX0000 
     MOVE.B      #12, D6         * MOVE 12 INTO D6 FOR FOLLOWING LSR
     LSR.W       D6, D5          * CCCXXXXXXXX0000 -> 0000000000000CCC
-    
-
     
     CMP.B       #%0010, D5      * TEST: CLR
     BEQ         CLR_CODE        * CLR CODE FOUND
@@ -27,7 +30,9 @@ CODE_0100_START
 
     
     BRA         INVALID_0100    * NO VALID CODE FOUND, RETURN TO MAIN
-        
+MOVEM_CODE  
+    JSR         MOVEM_START     *JUMP INTO MOVEM
+    BRA         RETURN_0100     
 CLR_CODE
     JSR         CODE_0100_CLR   * GO TO CLR CODE FOR DECODE
     BRA         RETURN_0100     * RETURN TO MAIN
@@ -72,6 +77,8 @@ INVALID_0100
 
 RETURN_0100
     RTS                         * RETURN TO MAIN
+
+
 
 
 

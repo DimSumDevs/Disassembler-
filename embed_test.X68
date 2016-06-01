@@ -16,7 +16,11 @@ begin		EQU	$00007000	* ORG and END address
 
                 BCC	compares		
 		BGT	compares		
-		BLE	compares  
+		BLE	compares
+                *BCC     $0FF000
+                BCC     test
+test
+                BCC     test
                 ADDI.B      #$11, D3
 *                ADDI.W      #$1234,D1
 *                ADDI.L      #$12CDEF43,D2
@@ -257,12 +261,20 @@ begin		EQU	$00007000	* ORG and END address
                 ROR.L	#3,D3
                 NOP
 *CMP
-compares        CMP.B	(A3),D5
-                NOP
-*BCC
                 BCC	compares		
 		BGT	compares		
 		BLE	compares
+		
+compares        CMP.B	(A3),D5
+                NOP
+*BCC
+                BGT     test
+                BCC	compares
+                BCC     test		
+		BGT	compares
+                BGT     test		
+		BLE	compares
+		BLE     test
                 NOP
 *JSR
                 JSR     $7500
@@ -270,6 +282,16 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
+
+
+
+
+
+
+
+
+
 
 
 
