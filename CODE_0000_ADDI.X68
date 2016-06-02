@@ -53,6 +53,7 @@ ADDI_WORD
     MOVE.B      #$57, (A1)+     * LOAD 'W' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$20, (A1)+     * LOAD ' ' INTO A1
+    ADD.W       #1, D1
     MOVE.B      #7, SOURCE_MODE
     MOVE.B      #4, SOURCE_REG
     BRA         ADDI_SCOURCE 
@@ -87,6 +88,7 @@ LOAD_TO_PRINT_ADDI
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
     
+
 
 
 

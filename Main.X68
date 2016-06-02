@@ -105,6 +105,7 @@ SEARCH_LOOP
 INC_LOOP
     MOVEA.L  A1LOC, A1          * RESET A1    
     ADDA.L   #$2, A4            * INC Address
+CONTINUE_LOOP
     MOVE.W  (A4), D4            * Move Byte contents into Data
     CMPA.L  MEM_TO, A4          * Compare to MAIN
     BGE     ALMOST_DONE         * If Current address is larger than main, exit
@@ -190,7 +191,7 @@ SCREEN_PAUSE
     
     MOVE.B  #0, SCREEN_COUNT    * RESET SCREEN_COUNT TIMER
     MOVEA.L  A1LOC, A1          * RESET A1  
-    BRA     INC_LOOP
+    BRA     CONTINUE_LOOP
 
 ALMOST_DONE
     MOVE.B  #2, D0              * MOVE 2 FOR TASK 2, TRAP 15: PAUSE UNTIL 'RETURN' HIT
@@ -224,6 +225,7 @@ PAUSE_MSG   DC.B CR,'PRESS ENTER TO CONTINUE' ,0
 END_MSG     DC.B CR,'TOTAL OPCODES FOUND: ',0
 
     END    START        ; last line of source
+
 
 
 
