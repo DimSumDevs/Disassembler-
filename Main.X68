@@ -4,7 +4,7 @@
 * Date       : May 3, 2016
 * Description: Test Main Loop for 422 Project
 *-----------------------------------------------------------
-    INCLUDE 'embed_test.x68' ********** ONLY USED FOR QUICK TESTS! GET RID OF THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    *INCLUDE 'embed_test.x68' ********** ONLY USED FOR QUICK TESTS! GET RID OF THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     INCLUDE '_VARIABLES.X68'
     INCLUDE 'USER_INPUT.X68'
         INCLUDE '_INIT.X68'
@@ -225,6 +225,7 @@ PAUSE_MSG   DC.B CR,'PRESS ENTER TO CONTINUE' ,0
 END_MSG     DC.B CR,'TOTAL OPCODES FOUND: ',0
 
     END    START        ; last line of source
+
 
 
 

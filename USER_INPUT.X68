@@ -8,6 +8,26 @@
 START_USER_INPUT                  ; first instruction of program
 
 *print instruction to user
+    LEA     Banner1, A1     * Banner 1 Load
+    MOVE.B  #13, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
+    TRAP    #15             * Display Prompt
+    LEA     Banner2, A1     * Banner 1 Load
+    *MOVE.B  #13, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
+    TRAP    #15             * Display Prompt
+    LEA     Banner3, A1     * Banner 1 Load
+    *MOVE.B  #13, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
+    TRAP    #15             * Display Prompt
+    LEA     Banner4, A1     * Banner 1 Load
+    *MOVE.B  #13, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
+    TRAP    #15             * Display Prompt
+    LEA     Banner5, A1     * Banner 1 Load
+    *MOVE.B  #13, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
+    TRAP    #15             * Display Prompt
+    LEA     Banner6, A1     * Banner 1 Load
+    *MOVE.B  #13, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
+    TRAP    #15             * Display Prompt
+    LEA     Names, A1
+    TRAP    #15
 PROMT_ONE
     LEA PromptOne,A1
     MOVE.B  #14, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
@@ -110,10 +130,20 @@ RETURN
 *---------OutPut Values--------------------------------------------------------
 CR      EQU $0D             ;ASCII code for Carriage Return
 LF      EQU $0A             ;ASCII code for Line Feed
-PromptOne DC.B CR,'Please enter long word hexadecimal start address: ' ,0
+PromptOne DC.B CR,LF,'Please enter long word hexadecimal start address: ' ,0
 PromptTwo DC.B CR,'Please enter long word hexadecimal end address: ' ,0
 InputError   Dc.B CR,'Error - Please enter 8 digits of valid input ', 0
 DifferenceError Dc.B CR,'Error - start must be greater then End address'
+Banner1  DC.B CR,'______ _             _____                  ______               ',0
+Banner2  DC.B CR,'|  _  (_)           /  ___|                 |  _  \              ',0
+Banner3  DC.B CR,'| | | |_ _ __ ___   \ `--. _   _ _ __ ___   | | | |_____   _____ ',0
+Banner4  DC.B CR,'| | | | | \_ ` _ \   `--. \ | | | \_ ` _ \  | | | / _ \ \ / / __|',0
+Banner5  DC.B CR,'| |/ /| | | | | | | /\__/ / |_| | | | | | | | |/ /  __/\ V /\__ \',0
+Banner6  DC.B CR,'|___/ |_|_| |_| |_| \____/ \__,_|_| |_| |_| |___/ \___| \_/ |___/',0
+Names    DC.B CR,'    TYLER QUAYLE  |    MICHAEL RITCHIE    |      FULI LAN    ',0
+
+
+
 
 
 
