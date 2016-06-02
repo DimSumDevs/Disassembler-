@@ -7,46 +7,36 @@
     ORG    $2000
 *************************************************************
 ******************SUBROUTINE LOCATIONS***********************    
-MAIN                EQU $100                                *
-_INIT               EQU $900                                *
-USER_INPUT          EQU $15000
-DECODE_MAIN         EQU $16000                              *
-DECODE_SORT         EQU $16200                              *
-CONVERT_HEX_ASCII   EQU $16300                              *
-ABS_DECODE          EQU $16500                              *
-IMM_DECODE          EQU $17000                              *
-CODE_0000_ADDI      EQU $20100                              *                             *
-CODE_0001_MOVE_B    EQU $30000                              *
-                                                            *
-CODE_0010_MOVE_L    EQU $30100                              *
-                                                            *
-CODE_0011_MOVE_W    EQU $30200                              *
-                                                            *
-CODE_0100           EQU $20000                              *
-CODE_0100_CLR       EQU $20200                              *
-CODE_0100_NOP       EQU $20300                              *
-CODE_0100_RTS       EQU $20400                              *
-CODE_0100_JSR       EQU $20500                              *
-CODE_0100_STOP      EQU $20600                              *
-CODE_0100_LEA       EQU $20700                              *
-CODE_0100_MOVEM     EQU $20800
+MAIN                EQU $1100                               *
+_INIT               EQU $1350                               
+DECODE_SORT         EQU $1400                              *
+CONVERT_HEX_ASCII   EQU $1520                              *
+ABS_DECODE          EQU $1570                              *
+IMM_DECODE          EQU $1600                              *
 
-CODE_0110_BCC       EQU $24000
-                                                            *
-CODE_0111_MOVEQ     EQU $26000                              *
-                                                            *
-CODE_1000_OR        EQU $21100
-CODE_1001_SUB       EQU $23000                              *
-                                                            *
-CODE_1100_AND       EQU $21200                              *
-                                                            *
-CODE_0101_ADDQ      EQU $21000                              *                                                            
-                                                            *
-CODE_1101_ADD       EQU $22000                              *
-                                                            *
-CODE_1011_CMP       EQU $27000                              *
-                                                            *
-CODE_1110           EQU $31000                              *
+CODE_0000_ADDI      EQU $16A0                              *
+CODE_0001_MOVE_B    EQU $1780                              *
+CODE_0010_MOVE_L    EQU $1810                              *
+CODE_0011_MOVE_W    EQU $18A0                              *
+CODE_0100           EQU $1930                              *
+CODE_0100_CLR       EQU $19F0                              *
+CODE_0100_NOP       EQU $1A80                              *
+CODE_0100_RTS       EQU $1AC0                              *
+CODE_0100_JSR       EQU $1AF0                              *
+CODE_0100_STOP      EQU $1B40                              *
+CODE_0100_LEA       EQU $1B90                              *
+CODE_0100_MOVEM     EQU $1BF0
+CODE_0101_ADDQ      EQU $1D90                              *
+CODE_0110_BCC       EQU $1EF0
+CODE_0111_MOVEQ     EQU $1E60                              *
+CODE_1000_OR        EQU $2060
+CODE_1001_SUB       EQU $2170                              *
+CODE_1011_CMP       EQU $2260                              *
+CODE_1101_ADD       EQU $2320                              *
+CODE_1100_AND       EQU $2480                              *
+CODE_1110           EQU $25A0                              *
+DECODE_MAIN         EQU $26C0                              *
+USER_INPUT          EQU $2750
 *******************END SUBROUTINE LOCS***********************
 *************************************************************
 
@@ -56,7 +46,7 @@ CODE_1110           EQU $31000                              *
 *   USE VALUES BETWEEN 1010-1060
 A1LOC               EQU $1060       * USED FOR 'OUTPUT BUFFER' FOR A1
 PRINTER             EQU $1080       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
-FOR_ABS             EQU $9100       * USED IN ABS_DECODE FOR LOOPING
+FOR_ABS             EQU $1046       * USED IN ABS_DECODE FOR LOOPING
 
 SOURCE_REG          EQU $1014       * USED FOR ADDRESSES (ABS_DECODE/DECODE_SORT/DECODE_MAIN)
 SOURCE_MODE         EQU $1010       * USED FOR ADDRESSES (ABS_DECODE/DECODE_SORT/DECODE_MAIN)
@@ -73,6 +63,8 @@ MEM_TO              EQU $1040       * NEEDS TO BE FILLED FROM USER INPUT
 STORE_INPUT         EQU $1070
 
 OFFSET              EQU $102C
+
+
 
 
 

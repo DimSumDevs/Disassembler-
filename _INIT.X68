@@ -4,7 +4,7 @@
 * Date       :  MAY 6, 2016
 * Description:  'INITIALIZE' ALL VARIABLES INTO MEMORY
 *-----------------------------------------------------------
-    ORG    $900
+    ORG    _INIT
     
     CLR.W   DEST_MODE
     CLR.W   DEST_REG
@@ -41,6 +41,7 @@ GRID:   *USING THIS FOR 'DEBUG', TO SEE VARIABLES EASIER
     MOVE.W  #$AAAA, $1034
 
     RTS
+
 
 
 

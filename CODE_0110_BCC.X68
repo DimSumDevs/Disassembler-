@@ -39,6 +39,8 @@ BCC
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$20, (A1)+     * LOAD ' ' INTO A1[3]
     ADD.W       #1, D1          * INC CHAR COUNT
+    MOVE.B      #$24,(A1)+       *LOAD '$' INTO A1[4]
+    ADD.W       #1,D1           INC CHAR COUNT
     BRA GET_ADDRESS_DATA        *BRANCH TO GETTING DATA FOR CALCULATING ADDRESS
 
 BGT
@@ -51,6 +53,8 @@ BGT
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$20, (A1)+     * LOAD ' ' INTO A1[3]
     ADD.W       #1, D1          * INC CHAR COUNT
+    MOVE.B      #$24,(A1)+       *LOAD '$' INTO A1[4]
+    ADD.W       #1,D1           INC CHAR COUNT
     BRA GET_ADDRESS_DATA        *BRANCH TO GETTING DATA FOR CALCULATING ADDRESS
 BLE
 * put BLE into A1
@@ -62,6 +66,8 @@ BLE
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$20, (A1)+     * LOAD ' ' INTO A1[3]
     ADD.W       #1, D1          * INC CHAR COUNT
+    MOVE.B      #$24,(A1)+       *LOAD '$' INTO A1[4]
+    ADD.W       #1,D1           INC CHAR COUNT
     BRA GET_ADDRESS_DATA        *BRANCH TO GETTING DATA FOR CALCULATING ADDRESS
     
 GET_ADDRESS_DATA
@@ -168,6 +174,8 @@ PRINT_ALL
     BRA RETURN_BCC
 RETURN_BCC
     RTS
+
+
 
 
 
