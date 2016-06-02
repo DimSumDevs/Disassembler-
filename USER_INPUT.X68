@@ -47,14 +47,7 @@ PROMPT_TWO
     JSR READ_IN_DATA        *read in the first address
     JSR CHECK_DATA          *check if data is good, will continue prompting user until good data is obtained
     JSR MOVE_BITS           *compress data
-*---------------ThIS IS ALL BROKEN--------------------------------------------
-    *CMP.L MEM_FROM,D4       *compare mem_to with mem_from, if mem_to is greator then thats bad
-    *BLT RETURN              *should be done now, return
-    
-    *LEA DifferenceError,A1  *load difference error message
-    *MOVE.B  #14, D0         * Task 14, Trap 15 - Display NULL terminate Sting, no CR/LF
-    *TRAP    #15             * Display Prompt
-    *BRA START_USER_INPUT    *from address was larger then too address so repeat
+    BRA RETURN_USER_INPUT   *RETURN
     
 *read data from user
 READ_IN_DATA
@@ -124,7 +117,7 @@ MOVE_DONE
     MOVE.L  D4,(A3)
     RTS                     *DONE MOVING BITS SO RETURN
 *assign data to variables used by main
-RETURN
+RETURN_USER_INPUT
     RTS                 *all done, return to main
 
 *---------OutPut Values--------------------------------------------------------
@@ -141,6 +134,7 @@ Banner4  DC.B CR,'| | | | | \_ ` _ \   `--. \ | | | \_ ` _ \  | | | / _ \ \ / / 
 Banner5  DC.B CR,'| |/ /| | | | | | | /\__/ / |_| | | | | | | | |/ /  __/\ V /\__ \',0
 Banner6  DC.B CR,'|___/ |_|_| |_| |_| \____/ \__,_|_| |_| |_| |___/ \___| \_/ |___/',0
 Names    DC.B CR,'    TYLER QUAYLE  |    MICHAEL RITCHIE    |      FULI LAN    ',0
+
 
 
 
