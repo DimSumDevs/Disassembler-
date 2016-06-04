@@ -4,7 +4,7 @@
 * Date       : May 3, 2016
 * Description: Test Main Loop for 422 Project
 *-----------------------------------------------------------
-    *INCLUDE 'embed_test.x68' ********** ONLY USED FOR QUICK TESTS! GET RID OF THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    INCLUDE 'embed_test.x68' ********** ONLY USED FOR QUICK TESTS! GET RID OF THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     INCLUDE '_VARIABLES.X68'
     INCLUDE 'USER_INPUT.X68'
     INCLUDE 'CONVERT_HTA.X68'
@@ -208,9 +208,9 @@ SIM_END
     MOVE.W  #$FF00, D1          * MOVE $FF00 INTO D1, WHEN TRAP 15 CALLED, CLR SCREEN
     TRAP    #15                 * CLEAR SCREEN
       
-    LEA     END_MSG, A1         *OP CODES FOUND
-    MOVE.B  #14, D0             * MOVE 14 FOR TASK 14, TRAP 15: PRINT A1, NO LF/CR
-    TRAP    #15
+    *LEA     END_MSG, A1         *OP CODES FOUND
+    *MOVE.B  #14, D0             * MOVE 14 FOR TASK 14, TRAP 15: PRINT A1, NO LF/CR
+    *TRAP    #15
     
     *MOVE.B  #15, D0
     *MOVE.B  #10, D2
@@ -220,6 +220,8 @@ SIM_END
     LEA     LOOP_MSG, A1
     MOVE.B  #14, D0             * MOVE 14 FOR TASK 14, TRAP 15: PRINT A1, NO LF/CR
     TRAP    #15
+    
+    MOVE.L  A1LOC,A1      *SET A1 TO USER_INPUT 
     MOVE.B  #2, D0              * Task 2 for Trap 15, Read in String
     TRAP    #15                 * Get User input
     
