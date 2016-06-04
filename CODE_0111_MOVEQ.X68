@@ -7,6 +7,7 @@
     ORG    CODE_0111_MOVEQ
 
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     MOVE.W      (A4),D3         * Give D4 value at A4
 
@@ -58,6 +59,7 @@ LOAD_TO_PRINT_MOVEQ
 
     * Give D4 value at A4
  
+
 
 
 

@@ -9,6 +9,7 @@ START_CODE_0110_BCC             ; first instruction of program
 
 
     CLR.W D1                    *clear char count at d1
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
 *get the status nibble into D6
      MOVE.W  (A4),D6            *load op_code into d6 to get status XCXX
      LSL.W   #4,D6              *SHIFT LEFT 4 DIGITS XCXX ---> CXX0
@@ -126,54 +127,20 @@ NEGATIVE_DISPLACMENT
     BRA LOAD_TO_A1
 
 LOAD_TO_A1
-    MOVE.B #00,D2               *SET D2 TO 0 FOR LOOPING
-LOAD_LOOP
-    CMP.B   #2,D2               *COMPARE D2 TO 3 TO END LOOP
-    BEQ PRINT_ALL              *ALL DONE PRINT IT OUT
-    ADD.B   #1,D2               *INCREMENT
-    SWAP    D5                  *SWAP DATA AT D5 SO THAT THE LEFT HAND SIDE CAN BE PRINTED FIRST
-    ROR.W   #8,D5                *ROTATE THE LOWER WORD 8 BITS TO GET THE LEFT HAND BYTE FIRST
-    JSR PRINT_BYTE              *PRINT THE LEFT HAND BYTE (NOW LOWER BYTE)
-    ROR.W   #8,D5                *ROTATE LOWER WORD AGAIN TO GET THE RIGHT HAND BYTE
-    JSR PRINT_BYTE              *PRINT THE RIGHT HAND BYTE (NOW LOWER BYTE)
-    
-    BRA LOAD_LOOP               *LOOP BACK
-    
-PRINT_BYTE
-    MOVE.B  D5,D3               *MOVE THE BYTE OF DATA AT D5 TO D3
-    LSR.B   #4,D3               *GET THE FIRST BYTE FROM D3 FOR PRINTING
-    
-    JSR PRINT_DIGIT             *CONVERT THE DIGIT AT D3 TO ASCCI
-    
-    MOVE.B  D5,D3               *MOVE THE BYTE OF DATA AT D5 TO D3
-    LSL.B   #4,D3                *SHIFT THE SENCOND BYTE AT D3 LEFT
-    LSR.B   #4,D3               *SHIFT 2ND BYTE BACK RIGHT
-    
-    JSR PRINT_DIGIT             *CONVERT THE DIGIT AT D3 TO ASCCI
-    
-    RTS
-PRINT_DIGIT
-    CMP.B       #10, D3         * IF VALUE OF HEX IS GREATER OR EQUAL TO 10(A)
-    BGE PRINT_LETTER            * VALUE IS #10-15, CONVERT LETTER
-    BRA PRINT_NUMBER            * VALUE IS #0-9, CONVERT NUMBER
-PRINT_LETTER
-    ADD.W       #$37, D3        * ADD #$37 TO D3, TO GET ASCII-HEX LETTER VALUE
-    MOVE.B      D3, (A1)+       * ADD ASCII-HEX CHAR(A-F) TO A1, INCREMENT A1
-    ADD.W       #1, D1          * INC CHAR COUNT 
-    RTS
-PRINT_NUMBER
-    ADD.W       #$30, D3        * ADD #$30 TO D3, TO GET ASCII-HEX NUMBER VALUE
-    MOVE.B      D3, (A1)+       * ADD ASCII-HEX CHAR(0-9) TO A1, INCREMENT A1
-    ADD.W       #1, D1          * INC CHAR COUNT 
-    RTS                         * GO BACK TO ABS_LOOP
-    
-PRINT_ALL
+    MOVE.L  D5, HTA_CONVERT     *MOVE D5 TO HTA CONVERT
+    MOVE.B  #4,HTA_SIZE         *MOVE 4 TO HTA SIZE FOR LONG WORD
+    MOVE.B  #1,HTA_LEADING_ZEROS *MOVE 1 TO HTA_LEADING ZEROS SO THEY WONT BE PRINTED
+    JSR CONVERT_HTA              *USE HTA SUBROUTINE TO LOAD THE DISPLACMENT FOR PRINTING
+BCC_PRINT
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     BRA RETURN_BCC
 RETURN_BCC
     RTS
+
+
+
 
 
 

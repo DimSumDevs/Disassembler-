@@ -12,8 +12,9 @@
 * 0 1 2 3 4 5 6 7 8 9 A B
 
 
-    ORG CODE_1110 *TENTATIVE START LOCATION UNTIL DISCUSSED WITH TEAM
+    ORG CODE_1110
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     MOVE.W      (A4),D4         * Give D4 value at A4
     
     BTST.L      #3, D4          * Test Bit 3, if 1, its Logical, otherwise Arithmatic
@@ -116,6 +117,8 @@ LOAD_TO_PRINT
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
+
 
 
 

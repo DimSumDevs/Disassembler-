@@ -7,6 +7,7 @@
     ORG    CODE_0101_ADDQ
 
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     
     
@@ -82,6 +83,7 @@ LOAD_TO_PRINT_ADDQ
 
     * Give D4 value at A4
  
+
 
 
 

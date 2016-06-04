@@ -11,6 +11,7 @@
     ORG    CODE_0100_STOP
 STOP_START
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
 
     MOVE.B      #$53, (A1)+     * LOAD 'S' INTO A1[0]
     ADD.W       #1, D1          * INC CHAR COUNT
@@ -32,6 +33,7 @@ LOAD_TO_PRINT_STOP
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 
 

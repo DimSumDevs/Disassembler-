@@ -7,6 +7,7 @@
     ORG    CODE_1000_OR
     
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     MOVE.W      (A4),D3
     LSR.B       #6, D3          * SSXXXXXX -> 000000SS
@@ -112,6 +113,7 @@ LOAD_TO_PRINT_OR
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 *~Font name~Courier New~
 *~Font size~10~

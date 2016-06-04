@@ -30,7 +30,7 @@ CODE_0100_START
 
     
     BRA         INVALID_0100    * NO VALID CODE FOUND, RETURN TO MAIN
-MOVEM_CODE  
+MOVEM_CODE
     JSR         MOVEM_START     *JUMP INTO MOVEM
     BRA         RETURN_0100     
 CLR_CODE
@@ -77,6 +77,8 @@ INVALID_0100
 
 RETURN_0100
     RTS                         * RETURN TO MAIN
+
+
 
 
 

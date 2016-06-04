@@ -36,14 +36,15 @@ CODE_1101_ADD       EQU $2320                              *
 CODE_1100_AND       EQU $2480                              *
 CODE_1110           EQU $25A0                              *
 DECODE_MAIN         EQU $26C0                              *
-USER_INPUT          EQU $2750
+USER_INPUT          EQU $2750                              *
+CONVERT_HTA         EQU $2B20                              *
 *******************END SUBROUTINE LOCS***********************
 *************************************************************
 
 *************************************************************
 *******************VARIABLES*********************************
 
-*   USE VALUES BETWEEN 1010-1060
+*   USE VALUES BETWEEN 1000-1100
 A1LOC               EQU $1060       * USED FOR 'OUTPUT BUFFER' FOR A1
 PRINTER             EQU $1080       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
 FOR_ABS             EQU $1046       * USED IN ABS_DECODE FOR LOOPING
@@ -60,9 +61,13 @@ _SIZE               EQU $101C       * USED FOR IMME ADDR
 _TOTAL              EQU $1050       * USED TO COUNT TOTAL OPCODES
 MEM_FROM            EQU $1030       * NEEDS TO BE FILLED FROM USER INPUT
 MEM_TO              EQU $1040       * NEEDS TO BE FILLED FROM USER INPUT
-STORE_INPUT         EQU $1070
+STORE_INPUT         EQU $1070       * USED BY UESER_INPUT
+OFFSET              EQU $102C       
 
-OFFSET              EQU $102C
+HTA_CONVERT         EQU $1048       *USED BY CONVERT_HTA
+HTA_SIZE            EQU $104D       *USED BY CONVERT_HTA
+HTA_LEADING_ZEROS   EQU $1056       *USED BY CONVERT_HTA
+
 
 
 

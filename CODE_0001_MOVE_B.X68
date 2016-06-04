@@ -9,6 +9,7 @@
     
 MOVE_B_START
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     MOVE.W      (A4),D3
     LSL.B       #2, D3          * XXMMMXXX -> MMMXXX00 WHERE MMM IS SOURCE MODE
@@ -59,6 +60,7 @@ LOAD_TO_PRINT_MOVE_B
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 
 

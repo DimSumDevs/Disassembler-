@@ -13,6 +13,7 @@
 MOVEM_START:                  ; first instruction of program
 
     CLR.W D1                    *clear char count at d1
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
 * put MOVE.M into A1
     MOVE.B      #$4D, (A1)+     * LOAD 'M' INTO A1[0]
@@ -212,6 +213,7 @@ DATA_LOOP_MINUS
 
 MASK_RTS
     RTS
+
 
 
 

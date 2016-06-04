@@ -7,6 +7,7 @@
     ORG    CODE_0000_ADDI
     
     CLR.W       D1              * RESET CHAR COUNT
+    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     MOVE.B      #$41, (A1)+     * LOAD 'A' INTO A1[0]
     ADD.W       #1, D1          * INC CHAR COUNT
@@ -88,6 +89,7 @@ LOAD_TO_PRINT_ADDI
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
     
+
 
 
 
