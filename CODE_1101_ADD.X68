@@ -146,11 +146,14 @@ ADDA_EA_SOURCE
     BRA         LOAD_TO_PRINT_ADD    
     
 LOAD_TO_PRINT_ADD
+    MOVE.W      #7, _SPACES
+    JSR         ADD_SPACES
     JSR         DECODE_MAIN 
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 
 

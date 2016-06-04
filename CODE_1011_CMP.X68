@@ -8,6 +8,7 @@
     ORG    CODE_1011_CMP
 CODE_1011_CMP_START
     CLR.W       D1              * RESET CHAR COUNT
+    CLR.B       _SIZE
     JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     MOVE.W      (A4),D3         * MOVE BYTE AT A4 TO D3 FOR BIT SHIFT TO FIND REG/MODE
@@ -23,7 +24,7 @@ CODE_1011_CMP_START
     MOVE.W      (A4),D3         * MOVE BYTE AT A4 TO D3 FOR BIT SHIFT TO FIND REG/MODE
     LSR.W       #1, D3          * XXXXXXXMMMXXXXXX -> MMMXXXXX WHERE MMM IS DEST MODE
     LSR.B       #5, D3          * MMMXXXXX -> 00000MMM WHERE MMM IS DEST MODE
-    MOVE.B      D3, DEST_MODE   * FOR DEST MODE
+    MOVE.B      #0, DEST_MODE   * FOR DEST MODE
     MOVE.B      D3,_SIZE        * MOVE 0 INTO SIZE FOR IMM_DECODE. 0=B, 1=W,2=L  
     
     MOVE.W      (A4),D3         * MOVE BYTE AT A4 TO D3 FOR BIT SHIFT TO FIND REG/MODE
@@ -71,6 +72,7 @@ LOAD_TO_PRINT_OP_CODE
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 
 
