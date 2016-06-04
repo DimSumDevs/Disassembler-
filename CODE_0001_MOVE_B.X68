@@ -53,6 +53,8 @@ MOVE_B_FINISH:
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$42, (A1)+     * LOAD 'B' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
+    *MOVE.W      #7, _SPACES
+    *JSR         ADD_SPACES
     JSR         DECODE_MAIN        
     
 LOAD_TO_PRINT_MOVE_B
@@ -60,6 +62,8 @@ LOAD_TO_PRINT_MOVE_B
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
+
 
 
 
