@@ -195,6 +195,7 @@ SCREEN_PAUSE
     BRA     CONTINUE_LOOP
 
 ALMOST_DONE
+
     MOVE.B  #2, D0              * MOVE 2 FOR TASK 2, TRAP 15: PAUSE UNTIL 'RETURN' HIT
     TRAP    #15                 * PAUSE UNTIL RETURN HIT
 
@@ -207,25 +208,39 @@ SIM_END
     MOVE.W  #$FF00, D1          * MOVE $FF00 INTO D1, WHEN TRAP 15 CALLED, CLR SCREEN
     TRAP    #15                 * CLEAR SCREEN
       
-    LEA     END_MSG, A1
+    LEA     END_MSG, A1         *OP CODES FOUND
     MOVE.B  #14, D0             * MOVE 14 FOR TASK 14, TRAP 15: PRINT A1, NO LF/CR
-    TRAP    #15                 * PAUSE UNTIL RETURN HIT
-    
-    MOVE.B  #15, D0
-    MOVE.B  #10, D2
-    MOVE.L  _TOTAL, D1
     TRAP    #15
     
-    MOVE.B  #2, D0              * MOVE 2 FOR TASK 2, TRAP 15: PAUSE UNTIL 'RETURN' HIT
-    TRAP    #15                 * PAUSE UNTIL RETURN HIT
+    *MOVE.B  #15, D0
+    *MOVE.B  #10, D2
+    *MOVE.L  _TOTAL, D1
+    *TRAP    #15
+    
+    LEA     LOOP_MSG, A1
+    MOVE.B  #14, D0             * MOVE 14 FOR TASK 14, TRAP 15: PRINT A1, NO LF/CR
+    TRAP    #15
+    MOVE.B  #2, D0              * Task 2 for Trap 15, Read in String
+    TRAP    #15                 * Get User input
+    
+    CMP.B   #$79,(A1)             *COMPARE DATA AT A1 TO y
+    BEQ START
+    CMP.B   #$59,(A1)             *COMPARE DATA AT A1 TO Y
+    BEQ START   
+    
+    *MOVE.B  #2, D0              * MOVE 2 FOR TASK 2, TRAP 15: PAUSE UNTIL 'RETURN' HIT
+    *TRAP    #15                 * PAUSE UNTIL RETURN HIT
 
     SIMHALT             ; halt simulator
 CR      EQU $0D             ;ASCII code for Carriage Return
 LF      EQU $0A             ;ASCII code for Line Feed
 PAUSE_MSG   DC.B CR,'PRESS ENTER TO CONTINUE' ,0
 END_MSG     DC.B CR,'TOTAL OPCODES FOUND: ',0
+LOOP_MSG    DC.B CR,LF,'ENTER Y TO LOOP AGAIN: ',0
 
     END    START        ; last line of source
+
+
 
 
 
