@@ -38,6 +38,7 @@ CODE_1110           EQU $25A0                              *
 DECODE_MAIN         EQU $26C0                              *
 USER_INPUT          EQU $2750                              *
 CONVERT_HTA         EQU $2B20                              *
+PRINT_NOP_DATA      EQU $2C40
 ADD_SPACES          EQU $2E00
 *******************END SUBROUTINE LOCS***********************
 *************************************************************
@@ -70,6 +71,7 @@ HTA_SIZE            EQU $104D       *USED BY CONVERT_HTA
 HTA_LEADING_ZEROS   EQU $1056       *USED BY CONVERT_HTA
 
 _SPACES             EQU $102C
+
 
 
 

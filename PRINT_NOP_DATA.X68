@@ -4,7 +4,7 @@
 * Date       :
 * Description:  Prints non-opcode data 
 *-----------------------------------------------------------
-    ORG    $3000
+    ORG    PRINT_NOP_DATA
 PRINT_NOP_DATA:                  ; first instruction of program
     
     CLR.B   D1                  *CLEAR D1
@@ -32,6 +32,7 @@ PRINT_NOP_DATA:                  ; first instruction of program
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
 
 *~Font name~Courier New~
 *~Font size~10~
