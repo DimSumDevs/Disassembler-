@@ -12,7 +12,7 @@ SPACE_LOOP
     ADD.W       #1, D1          * INC CHAR COUNT
     
     SUB.W       #1, _SPACES
-    CMP.B       #0, _SPACES
+    CMP.W       #0, _SPACES
     BEQ         END_SPACE_LOOP
     BRA         SPACE_LOOP
 
@@ -20,6 +20,7 @@ END_SPACE_LOOP
     CLR.W       _SPACES
     RTS
     
+
 
 *~Font name~Courier New~
 *~Font size~10~
