@@ -62,6 +62,9 @@ CLR_MODE
     LSR.B       #5, D3          * RRR00000 -> 00000RRR  WHERE RRR IS REGISTER
     MOVE.B      D3,SOURCE_REG
 
+    MOVE.W      #4, _SPACES
+    JSR         ADD_SPACES  
+    
     JSR         DECODE_MAIN        * GO TO SOURCE_DEC
        
 LOAD_TO_PRINT_CLR
@@ -86,6 +89,10 @@ LOAD_TO_PRINT_CLR
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

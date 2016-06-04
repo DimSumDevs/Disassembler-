@@ -49,6 +49,8 @@ DIVU
     
     MOVE.B      #$57, (A1)+     * LOAD 'W' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
+    MOVE.W      #3, _SPACES
+    JSR         ADD_SPACES  
     BRA         OR_EA_SOURCE 
     
 OR_BYTE
@@ -65,7 +67,10 @@ OR_LONG
     BRA         OR_DECODE
     
     
-OR_DECODE  
+OR_DECODE
+    MOVE.W      #5, _SPACES
+    JSR         ADD_SPACES  
+  
     MOVE.W      (A4),D3
     BTST.L      #8, D3
     BNE         OR_DN_SOURCE
@@ -115,6 +120,12 @@ LOAD_TO_PRINT_OR
     RTS                         * GO BACK TO MAIN
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

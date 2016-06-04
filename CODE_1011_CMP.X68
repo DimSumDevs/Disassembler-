@@ -8,7 +8,10 @@
     ORG    CODE_1011_CMP
 CODE_1011_CMP_START
     CLR.W       D1              * RESET CHAR COUNT
+<<<<<<< Updated upstream
     CLR.B       _SIZE
+=======
+>>>>>>> Stashed changes
     JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
     
     MOVE.W      (A4),D3         * MOVE BYTE AT A4 TO D3 FOR BIT SHIFT TO FIND REG/MODE
@@ -64,6 +67,8 @@ CMP_LONG
     BRA         CMP_DECODE
 
 CMP_DECODE
+    MOVE.W      #4, _SPACES
+    JSR         ADD_SPACES  
     JSR         DECODE_MAIN       
 
     

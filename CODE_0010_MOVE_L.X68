@@ -46,12 +46,17 @@ MOVE_L_START
 MOVEA_L
     MOVE.B      #$41, (A1)+     * LOAD 'A' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT 
+    
 
 MOVE_L_FINISH:
     MOVE.B      #$2E, (A1)+     * LOAD '.' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$4C, (A1)+     * LOAD 'L' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
+    
+    MOVE.W      #3, _SPACES
+    JSR         ADD_SPACES
+    
     JSR         DECODE_MAIN        
     
 LOAD_TO_PRINT_MOVE_L
@@ -63,6 +68,13 @@ LOAD_TO_PRINT_MOVE_L
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

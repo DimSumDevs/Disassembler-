@@ -45,13 +45,16 @@ MOVE_W_START
     BNE         MOVE_W_FINISH
 MOVEA_W
     MOVE.B      #$41, (A1)+     * LOAD 'A' INTO A1[4]
-    ADD.W       #1, D1          * INC CHAR COUNT 
+    ADD.W       #1, D1          * INC CHAR COUNT
+     
 
 MOVE_W_FINISH:
     MOVE.B      #$2E, (A1)+     * LOAD '.' INTO A1[4/5]
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$57, (A1)+     * LOAD 'W' INTO A1[5/6]
     ADD.W       #1, D1          * INC CHAR COUNT
+    MOVE.W      #3, _SPACES
+    JSR         ADD_SPACES
     JSR         DECODE_MAIN       
 
 
@@ -65,6 +68,13 @@ LOAD_TO_PRINT_MOVE_W
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

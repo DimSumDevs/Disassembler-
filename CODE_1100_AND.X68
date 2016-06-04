@@ -1,8 +1,8 @@
 *-----------------------------------------------------------
-* Title      :  CODE_1000_OR
+* Title      :  CODE_1000_AND
 * Written by :  TYLER QUAYLE
 * Date       :  5/15/2016
-* Description:
+* Description: OR AND MULU
 *-----------------------------------------------------------
     ORG    CODE_1100_AND
     
@@ -51,6 +51,8 @@ MULU
     
     MOVE.B      #$57, (A1)+     * LOAD 'W' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
+    MOVE.W      #3, _SPACES
+    JSR         ADD_SPACES  
     BRA         OR_EA_SOURCE 
     
 AND_BYTE
@@ -66,7 +68,9 @@ AND_LONG
     ADD.W       #1, D1          * INC CHAR COUNT
     BRA         AND_DECODE
 
-AND_DECODE  
+AND_DECODE
+    MOVE.W      #4, _SPACES
+    JSR         ADD_SPACES    
     MOVE.W      (A4),D3
     BTST.L      #8, D3
     BNE         AND_DN_SOURCE
@@ -116,6 +120,11 @@ LOAD_TO_PRINT_AND
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

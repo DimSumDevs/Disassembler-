@@ -59,6 +59,9 @@ ADDQ_LONG
     BRA         ADD_Q_DECODE
 
 ADD_Q_DECODE
+    MOVE.W      #3, _SPACES
+    JSR         ADD_SPACES  
+
     MOVE.B      #$20, (A1)+     * LOAD ' ' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT    
     MOVE.B      #$23, (A1)+     * LOAD '#' INTO A1
@@ -90,6 +93,11 @@ LOAD_TO_PRINT_ADDQ
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

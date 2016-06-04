@@ -35,6 +35,9 @@ LEA_START
     LSR.B       #5, D3          * RRR00000 -> 00000RRR WHERE RRR IS SOURCE REG
     MOVE.B      D3,SOURCE_REG     * FOR DEST REG 
 
+    MOVE.W      #6, _SPACES
+    JSR         ADD_SPACES
+    
     JSR         DECODE_MAIN  
 LOAD_TO_PRINT_LEA
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
@@ -48,6 +51,10 @@ LOAD_TO_PRINT_LEA
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

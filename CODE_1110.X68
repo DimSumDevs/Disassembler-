@@ -76,6 +76,9 @@ SIZE_LONG
     BRA         CHECK_C_R       * Go to CHECK_C_R (check count or register)
 ********************************************************************************************
 CHECK_C_R
+    MOVE.W      #4, _SPACES
+    JSR         ADD_SPACES
+    
     MOVE.B      #$20, (A1)+    * LOAD ' ' INTO A1[5]
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.W      (A4),D4         * Restore D4 to value at A5
@@ -124,6 +127,10 @@ LOAD_TO_PRINT
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

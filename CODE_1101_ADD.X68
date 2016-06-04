@@ -31,6 +31,8 @@ ADD_A
     ADD.W       #1, D1          * INC CHAR COUNT    
     MOVE.B      #$2E, (A1)+     * LOAD '.' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
+    
+    
     BRA         ADDA_SIZE
     
 ADD_SIZE
@@ -80,13 +82,22 @@ ADDA_SIZE
 ADDA_WORD
     MOVE.B      #$57, (A1)+     * LOAD 'W' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
+    
+*    MOVE.W      #4, _SPACES
+*    JSR         ADD_SPACES
+    
     BRA         ADDA_EA_SOURCE
 ADDA_LONG
     MOVE.B      #$4C, (A1)+     * LOAD 'L' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
+    
+*    MOVE.W      #4, _SPACES
+*    JSR         ADD_SPACES
+    
     BRA         ADDA_EA_SOURCE
     
-ADD_DECODE  
+ADD_DECODE
+    
     MOVE.W      (A4),D3
     BTST.L      #8, D3
     BNE         ADD_DN_SOURCE
@@ -146,7 +157,11 @@ ADDA_EA_SOURCE
     BRA         LOAD_TO_PRINT_ADD    
     
 LOAD_TO_PRINT_ADD
+<<<<<<< Updated upstream
     MOVE.W      #7, _SPACES
+=======
+    MOVE.W      #4, _SPACES
+>>>>>>> Stashed changes
     JSR         ADD_SPACES
     JSR         DECODE_MAIN 
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
@@ -163,6 +178,13 @@ LOAD_TO_PRINT_ADD
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

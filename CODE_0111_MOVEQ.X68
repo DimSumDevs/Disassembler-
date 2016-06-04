@@ -23,6 +23,10 @@
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$20, (A1)+     * LOAD ' ' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
+    
+    MOVE.W      #4, _SPACES
+    JSR         ADD_SPACES
+    
     MOVE.B      #$23, (A1)+     * LOAD '#' INTO A1
     ADD.W       #1, D1
     MOVE.B      #$24, (A1)+     * LOAD '$' INTO A1
@@ -47,6 +51,7 @@
     MOVE.B      D3, SOURCE_REG     * FOR SOURCE MODE
     
     
+
     
     JSR         DECODE_MAIN
     
@@ -66,6 +71,10 @@ LOAD_TO_PRINT_MOVEQ
 
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

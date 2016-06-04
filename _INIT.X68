@@ -60,7 +60,10 @@ GRID:   *USING THIS FOR 'DEBUG', TO SEE VARIABLES EASIER
 
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

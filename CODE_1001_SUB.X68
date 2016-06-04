@@ -44,7 +44,10 @@ SUB_LONG
     ADD.W       #1, D1          * INC CHAR COUNT
     BRA         SUB_DECODE
 
-SUB_DECODE  
+SUB_DECODE
+    MOVE.W      #4, _SPACES
+    JSR         ADD_SPACES  
+  
     MOVE.W      (A4),D3
     BTST.L      #8, D3
     BNE         SUB_DN_SOURCE
@@ -93,6 +96,10 @@ LOAD_TO_PRINT_SUB
     RTS                         * GO BACK TO MAIN
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

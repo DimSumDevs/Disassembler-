@@ -7,7 +7,11 @@
     ORG    $2000
 *************************************************************
 ******************SUBROUTINE LOCATIONS***********************    
+<<<<<<< Updated upstream
 MAIN                EQU $1080                               *
+=======
+MAIN                EQU $1100                               *
+>>>>>>> Stashed changes
 _INIT               EQU $1350                               
 DECODE_SORT         EQU $1400                              *
 CONVERT_HEX_ASCII   EQU $1520                              *
@@ -38,7 +42,10 @@ CODE_1110           EQU $25A0                              *
 DECODE_MAIN         EQU $26C0                              *
 USER_INPUT          EQU $2750                              *
 CONVERT_HTA         EQU $2B20                              *
+<<<<<<< Updated upstream
 PRINT_NOP_DATA      EQU $2C40
+=======
+>>>>>>> Stashed changes
 ADD_SPACES          EQU $2E00
 *******************END SUBROUTINE LOCS***********************
 *************************************************************
@@ -47,8 +54,13 @@ ADD_SPACES          EQU $2E00
 *******************VARIABLES*********************************
 
 *   USE VALUES BETWEEN 1000-1100
+<<<<<<< Updated upstream
 A1LOC               EQU $30E0       * USED FOR 'OUTPUT BUFFER' FOR A1
 PRINTER             EQU $3100       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
+=======
+A1LOC               EQU $1060       * USED FOR 'OUTPUT BUFFER' FOR A1
+PRINTER             EQU $1080       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
+>>>>>>> Stashed changes
 FOR_ABS             EQU $1046       * USED IN ABS_DECODE FOR LOOPING
 
 SOURCE_REG          EQU $1014       * USED FOR ADDRESSES (ABS_DECODE/DECODE_SORT/DECODE_MAIN)
@@ -77,9 +89,12 @@ _SPACES             EQU $102C
 
 
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 
 
 
