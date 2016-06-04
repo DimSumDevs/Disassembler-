@@ -13,7 +13,8 @@ begin		EQU	$00007000	* ORG and END address
 
 		ORG	begin
 
-
+                CMPA.W    A1, A2
+                CMP.L     D0, D1
                 BCC	compares		
 		BGT	compares		
 		BLE	compares
@@ -282,6 +283,8 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
+
 
 
 
