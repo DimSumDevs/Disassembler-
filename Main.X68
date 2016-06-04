@@ -201,6 +201,7 @@ SCREEN_PAUSE
     
     MOVE.B  #0, SCREEN_COUNT    * RESET SCREEN_COUNT TIMER
     MOVEA.L  A1LOC, A1          * RESET A1  
+    CLR.L   D1
     BRA     CONTINUE_LOOP
 
 ALMOST_DONE
@@ -251,6 +252,8 @@ END_MSG     DC.B CR,'TOTAL OPCODES FOUND: ',0
 LOOP_MSG    DC.B CR,LF,'ENTER Y TO LOOP AGAIN: ',0
 
     END    START        ; last line of source
+
+
 
 
 

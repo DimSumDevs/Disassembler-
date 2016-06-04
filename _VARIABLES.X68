@@ -7,7 +7,7 @@
     ORG    $2000
 *************************************************************
 ******************SUBROUTINE LOCATIONS***********************    
-MAIN                EQU $1100                               *
+MAIN                EQU $1080                               *
 _INIT               EQU $1350                               
 DECODE_SORT         EQU $1400                              *
 CONVERT_HEX_ASCII   EQU $1520                              *
@@ -47,8 +47,8 @@ ADD_SPACES          EQU $2E00
 *******************VARIABLES*********************************
 
 *   USE VALUES BETWEEN 1000-1100
-A1LOC               EQU $1060       * USED FOR 'OUTPUT BUFFER' FOR A1
-PRINTER             EQU $1080       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
+A1LOC               EQU $30E0       * USED FOR 'OUTPUT BUFFER' FOR A1
+PRINTER             EQU $3100       * NUM VARIABLE, CHANGE THIS TO CHANGE PRINT LOC!
 FOR_ABS             EQU $1046       * USED IN ABS_DECODE FOR LOOPING
 
 SOURCE_REG          EQU $1014       * USED FOR ADDRESSES (ABS_DECODE/DECODE_SORT/DECODE_MAIN)
@@ -71,6 +71,8 @@ HTA_SIZE            EQU $104D       *USED BY CONVERT_HTA
 HTA_LEADING_ZEROS   EQU $1056       *USED BY CONVERT_HTA
 
 _SPACES             EQU $102C
+
+
 
 
 
