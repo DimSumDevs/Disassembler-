@@ -19,7 +19,7 @@ CODE_0000_ADDI      EQU $16A0                              *
 CODE_0001_MOVE_B    EQU $1780                              *
 CODE_0010_MOVE_L    EQU $1810                              *
 CODE_0011_MOVE_W    EQU $18A0                              *
-CODE_0100           EQU $1930                              *
+CODE_0100           EQU $3200                              *
 CODE_0100_CLR       EQU $19F0                              *
 CODE_0100_NOP       EQU $1A80                              *
 CODE_0100_RTS       EQU $1AC0                              *
@@ -73,6 +73,7 @@ HTA_SIZE            EQU $104D       *USED BY CONVERT_HTA
 HTA_LEADING_ZEROS   EQU $1056       *USED BY CONVERT_HTA
 
 _SPACES             EQU $102C
+
 
 
 
