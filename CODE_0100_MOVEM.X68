@@ -88,7 +88,9 @@ SPACE
     BEQ REG_TO_MEM
     
 MEM_TO_REG
+    SUBA.L   #2,A4               *BACK UP A4 INCASE EA IS GARBAGE
     JSR DECODE_SORT             *JUMP INTO DECODE_SORT
+    ADDA.L   #2,A4              *AD 2 BACK TO A4 TO COMPENSATE FOR THE MASK
     
     MOVE.B      #$2C, (A1)+     *LOAD ',' INTO A1
     ADD.W       #1,D1            INC CHAR COUNT
@@ -102,7 +104,9 @@ REG_TO_MEM
     MOVE.B      #$2C, (A1)+     *LOAD ',' INTO A1
     ADD.W       #1,D1           * INC CHAR COUNT
 
+    SUBA.L   #2,A4               *BACK UP A4 INCASE EA IS GARBAGE
     JSR DECODE_SORT             *JUMP INTO DECODE_SORT
+    ADDA.L   #2,A4              *AD 2 BACK TO A4 TO COMPENSATE FOR THE MASK
     BRA LOAD_TO_PRINT_MOVEM    
  
 LOAD_TO_PRINT_MOVEM
@@ -217,6 +221,7 @@ DATA_LOOP_MINUS
 
 MASK_RTS
     RTS
+
 
 
 *~Font name~Courier New~
