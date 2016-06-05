@@ -17,7 +17,7 @@ begin		EQU	$00007000	* ORG and END address
                 add.w   D1, (A4)
                 NEGX.B  D5
                 NOP
-       
+                MOVEM.W (400,A3),D4
 
                 NEG.B    D2  
 *
@@ -338,6 +338,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 *~Font name~Courier New~

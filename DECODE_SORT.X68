@@ -8,7 +8,6 @@
     * D5 -> CONTAINS REGISTER 
     * D4 -> CONTAINS MODE
     ORG         DECODE_SORT
-
     
     CMP.B       #0, D4           *Dn
     BEQ         DATA_REG
@@ -111,7 +110,11 @@ EA_END
 BAD_EA
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     JSR PRINT_NOP_DATA
-    RTS
+    
+    MOVE.L  #0,A7               *RESET STACK POINTER
+    JSR GARBAGE_COUNT_INCREASE  *ADD TO SCREEN COUNT
+    JSR INC_LOOP
+
 
 
 
