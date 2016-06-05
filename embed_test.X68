@@ -14,15 +14,14 @@ begin		EQU	$00007000	* ORG and END address
 		ORG	begin
                 
                 NEGX.B  D5
-*                NOP.B   $1,D2
-*                CLR     $1,D2         
-*                NOP      
-*                
-*                NEG.B    $1,D2  
+                NOP
+       
+
+                NEG.B    D2  
 *
-*                NOT.B    $1,D2  
+                NOT.B   D2  
 *
-*                EXT.B    $1,D2  
+                EXT.B   D2  
 *
 *                NBCD.B    $1,D2  
 *
@@ -337,11 +336,6 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
-
-
-
-
-
 
 
 
