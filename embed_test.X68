@@ -29,7 +29,7 @@ test
                 ADDI.W      #$1234,D1
                 ADDI.L      #$12CDEF43,D2
                 
-                MULU.W      $11,D3
+                MULS.W      $11,D3
                 DIVU.W      $12,D3
 
                 SUB.B      D3,$12
@@ -289,6 +289,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 
