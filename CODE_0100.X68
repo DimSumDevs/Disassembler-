@@ -25,16 +25,12 @@ CODE_0100_START
     CMP.B       #$4C, D5
     BEQ         MOVEM_CODE
     CMP.B       #$48, D5
-    BEQ         INDICATE_JSR
+    BEQ         INDICATE_MOVEM
 
     MOVE.W      (A4),D5
     BTST.L      #8, D5
     BNE         INDICATE_LEA
-
-    
-    LSL.W       #4, D5          * XXXXCCCXXXXXXXX -> CCCXXXXXXXXX0000 
-    MOVE.B      #12, D6         * MOVE 12 INTO D6 FOR FOLLOWING LSR
-    LSR.W       D6, D5          * CCCXXXXXXXX0000 -> 0000000000000CCC    
+  
     
     BRA         INVALID_0100    * NO VALID CODE FOUND, RETURN TO MAIN
 INDICATE_MOVEM
@@ -86,6 +82,7 @@ INVALID_0100
     SUB.L       #1,_TOTAL       * SUBTRACT 1 FROM TOTAL OPCODES, AS NO ACTUAL OPCODE_FOUND
 RETURN_0100
     RTS                         * RETURN TO MAIN
+
 
 
 

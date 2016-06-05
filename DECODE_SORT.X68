@@ -94,9 +94,9 @@ DECR_ADDR
     BRA         EA_END
 
 DIS_ADDR
-    *BRA EA_END
+    BRA BAD_EA
 INDEX
-    *BRA EA_END
+    BRA BAD_EA
 
 GET_NUM
     ADD.W       #$30, D5        * Add $30 to D4, giving ASCII hex value of any number
@@ -108,6 +108,10 @@ EA_END
     RTS
     
 
+BAD_EA
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
 
 
 
