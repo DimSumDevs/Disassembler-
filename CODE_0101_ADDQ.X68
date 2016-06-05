@@ -85,19 +85,8 @@ LOAD_TO_PRINT_ADDQ
 
 
     * Give D4 value at A4
- 
 
 
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

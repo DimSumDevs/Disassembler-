@@ -53,15 +53,11 @@ MOVE_B_FINISH:
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$42, (A1)+     * LOAD 'B' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
-<<<<<<< Updated upstream
-    *MOVE.W      #7, _SPACES
-    *JSR         ADD_SPACES
-=======
+
     
     MOVE.W      #3, _SPACES
     JSR         ADD_SPACES
     
->>>>>>> Stashed changes
     JSR         DECODE_MAIN        
     
 LOAD_TO_PRINT_MOVE_B
@@ -72,22 +68,6 @@ LOAD_TO_PRINT_MOVE_B
 
 
 
-
-
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

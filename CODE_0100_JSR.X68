@@ -39,14 +39,6 @@ LOAD_TO_PRINT_JSR
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
 
-
-
-
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

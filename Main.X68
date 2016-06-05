@@ -9,10 +9,7 @@
     INCLUDE 'ADD_SPACES.x68'
     INCLUDE 'USER_INPUT.X68'
     INCLUDE 'CONVERT_HTA.X68'
-<<<<<<< Updated upstream
     INCLUDE 'PRINT_NOP_DATA.X68'
-=======
->>>>>>> Stashed changes
         INCLUDE '_INIT.X68'
     INCLUDE 'DECODE_MAIN.x68'
     INCLUDE 'DECODE_SORT.x68'
@@ -204,10 +201,9 @@ SCREEN_PAUSE
     
     MOVE.B  #0, SCREEN_COUNT    * RESET SCREEN_COUNT TIMER
     MOVEA.L  A1LOC, A1          * RESET A1  
-<<<<<<< Updated upstream
+
+
     CLR.L   D1
-=======
->>>>>>> Stashed changes
     BRA     CONTINUE_LOOP
 
 ALMOST_DONE
@@ -325,6 +321,7 @@ LOOP_MSG    DC.B CR,LF,'ENTER Y TO LOOP AGAIN: ',0
 
 =======
 >>>>>>> Stashed changes
+
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

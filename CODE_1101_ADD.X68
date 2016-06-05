@@ -157,11 +157,8 @@ ADDA_EA_SOURCE
     BRA         LOAD_TO_PRINT_ADD    
     
 LOAD_TO_PRINT_ADD
-<<<<<<< Updated upstream
-    MOVE.W      #7, _SPACES
-=======
     MOVE.W      #4, _SPACES
->>>>>>> Stashed changes
+
     JSR         ADD_SPACES
     JSR         DECODE_MAIN 
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
@@ -170,21 +167,6 @@ LOAD_TO_PRINT_ADD
     RTS                         * GO BACK TO MAIN
 
 
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-
-
-
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

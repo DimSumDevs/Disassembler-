@@ -69,14 +69,11 @@ ADDI_LONG
     MOVE.B      #4, SOURCE_REG
     BRA         ADDI_SCOURCE
     
-<<<<<<< Updated upstream
-ADDI_SCOURCE   
-=======
+
 ADDI_SCOURCE
     MOVE.W      #2, _SPACES
     JSR         ADD_SPACES
     
->>>>>>> Stashed changes
     MOVE.W      (A4),D3    
     LSL.B       #5, D3          * XXXXXRRR -> RRR00000 WHERE RRR IS DEST REG
     LSR.B       #5, D3          * RRR00000 -> 00000RRR WHERE RRR IS DEST REG
@@ -96,16 +93,8 @@ LOAD_TO_PRINT_ADDI
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
-    
 
 
-
-
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

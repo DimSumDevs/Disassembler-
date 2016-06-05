@@ -13,13 +13,11 @@ begin		EQU	$00007000	* ORG and END address
 
 		ORG	begin
 
-<<<<<<< Updated upstream
                 CMPA.W    A1, A2
                 CMP.L     D0, D1
-                CMP.L     #$222020, D1      
-=======
+                CMP.L     #$222020, D1
+                EOR       D1, D3      
 
->>>>>>> Stashed changes
                 BCC	compares		
 		BGT	compares		
 		BLE	compares
@@ -294,46 +292,6 @@ compares        CMP.B	(A3),D5
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

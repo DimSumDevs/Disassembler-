@@ -46,15 +46,6 @@ LOAD_TO_PRINT_LEA
     RTS                         * GO BACK TO MAIN
 
 
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

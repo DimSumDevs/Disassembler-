@@ -8,11 +8,12 @@
     ORG    CODE_1011_CMP
 CODE_1011_CMP_START
     CLR.W       D1              * RESET CHAR COUNT
-<<<<<<< Updated upstream
     CLR.B       _SIZE
-=======
->>>>>>> Stashed changes
-    JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
+    JSR         PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
+    
+    MOVE.W      (A4), D3
+    BTST.L      #8, D3
+    BNE         NOT_CMP
     
     MOVE.W      (A4),D3         * MOVE BYTE AT A4 TO D3 FOR BIT SHIFT TO FIND REG/MODE
     LSL.B       #2, D3          * XXMMMXXX -> MMMXXX00 WHERE MMM IS SOURCE MODE
@@ -78,6 +79,9 @@ LOAD_TO_PRINT_OP_CODE
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
 
+
+NOT_CMP
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
 
 
 

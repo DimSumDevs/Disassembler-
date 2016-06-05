@@ -23,7 +23,7 @@
     
     *JSR USER_INPUT              *JUMP INTO USER INPUT TO GET MEM_FROM AND MEM_TO LOCATIONS
     MOVE.L  #$7000, MEM_FROM    ********************** ONLY FOR TESTING!! ONCE USER INPUT GETS WRITTEN DELETE THIS
-    MOVE.L  #$11000, MEM_TO     ********************** ONLY FOR TESTING!! ONCE USER INPUT GETS WRITTEN DELETE THIS  
+    MOVE.L  #$9000, MEM_TO     ********************** ONLY FOR TESTING!! ONCE USER INPUT GETS WRITTEN DELETE THIS  
 
 GRID:   *USING THIS FOR 'DEBUG', TO SEE VARIABLES EASIER
     CLR.L   $1000
@@ -46,24 +46,6 @@ GRID:   *USING THIS FOR 'DEBUG', TO SEE VARIABLES EASIER
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

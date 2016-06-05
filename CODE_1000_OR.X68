@@ -120,12 +120,6 @@ LOAD_TO_PRINT_OR
     RTS                         * GO BACK TO MAIN
 
 
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~
