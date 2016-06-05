@@ -12,7 +12,51 @@ begin		EQU	$00007000	* ORG and END address
 * ORG the program so that it straddles the address boundary $00007FFF to $00008000
 
 		ORG	begin
-
+                
+                NEGX.B  D5
+*                NOP.B   $1,D2
+*                CLR     $1,D2         
+*                NOP      
+*                
+*                NEG.B    $1,D2  
+*
+*                NOT.B    $1,D2  
+*
+*                EXT.B    $1,D2  
+*
+*                NBCD.B    $1,D2  
+*
+*                SWAP.W    $1,D2  
+*
+*                PEA.L    $1,D2  
+*                NOP
+*                ILLEGAL
+*                NOP
+*                TAS.B    $1,D2  
+*                TST.B    $1,D2  
+*                TRAP    #12
+*                LINK    
+*                UNLK
+*                MOVE USP
+*                RESET
+*                NOP
+*                RTE
+*                RTS
+*                TRAPV
+*                RTR
+*                JSR
+*                JMP
+*                MOVEM
+*                LEA
+*                CHK
+*                NOP
+*                NOP
+*                NOP
+*                NOP
+*                NOP
+*                NOP
+                
+            
                 CMPA.L    A1, A2
                 CMPA.W    $12000, A2
                 EOR.W     D0,D1
@@ -293,6 +337,8 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
+
 
 
 

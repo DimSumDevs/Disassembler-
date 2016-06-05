@@ -37,7 +37,7 @@
     INCLUDE 'CODE_1110.x68'
     INCLUDE 'CODE_1101_ADD.X68'
     INCLUDE 'CODE_1001_SUB.X68'
-    *INCLUDE 'CODE_1100_MULU.X68' ******included inside CODE_1100_AND
+    *INCLUDE 'CODE_1100_MULS.X68' ******included inside CODE_1100_AND
     INCLUDE 'CODE_0000_ADDI.X68'
     
     ORG    MAIN
@@ -314,13 +314,6 @@ LOOP_MSG    DC.B CR,LF,'ENTER Y TO LOOP AGAIN: ',0
 
 
 
-<<<<<<< Updated upstream
-
-
-
-
-=======
->>>>>>> Stashed changes
 
 
 *~Font name~Courier New~

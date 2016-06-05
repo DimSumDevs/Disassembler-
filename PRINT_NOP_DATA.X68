@@ -25,13 +25,15 @@ PRINT_NOP_DATA:                  ; first instruction of program
     ADD.W       #1,D1           *INC CHAR COUNT
     
     MOVE.L      (A4),HTA_CONVERT
-    MOVE.B      #2,HTA_SIZE
+    MOVE.B      #4,HTA_SIZE
     JSR CONVERT_HTA
     
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
+
 
 
 

@@ -11,9 +11,9 @@ CODE_0100_START
 
     MOVE.W      (A4),D5         * Give D5 value at A4
                                 * WHERE CCC WILL DISTINGUISH WHICH 0100 OPCODE IT IS
-    CMP.L       $4E75, D5
+    CMP.W       #$4E75, D5
     BEQ         RTS_CODE
-    CMP.L       $4E71, D5
+    CMP.W       #$4E71, D5
     BEQ         NOP_CODE
     
     MOVE.B      #8, D2
@@ -27,12 +27,10 @@ CODE_0100_START
     CMP.B       #$48, D5
     BEQ         INDICATE_JSR
 
-    MOVE.W      (A4), D5
+    MOVE.W      (A4),D5
     BTST.L      #8, D5
     BNE         INDICATE_LEA
-    
-    BTST.L      #9,D5
-    BEQ         MOVEM_CODE
+
     
     LSL.W       #4, D5          * XXXXCCCXXXXXXXX -> CCCXXXXXXXXX0000 
     MOVE.B      #12, D6         * MOVE 12 INTO D6 FOR FOLLOWING LSR
@@ -86,9 +84,10 @@ INVALID_0100
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     JSR PRINT_NOP_DATA
     SUB.L       #1,_TOTAL       * SUBTRACT 1 FROM TOTAL OPCODES, AS NO ACTUAL OPCODE_FOUND
-
 RETURN_0100
     RTS                         * RETURN TO MAIN
+
+
 
 
 
