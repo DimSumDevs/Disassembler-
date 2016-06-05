@@ -31,6 +31,8 @@
     CMP.B       #2, _SIZE
     BEQ         SUB_LONG
     
+    BRA         NOT_SUB
+    
 SUB_BYTE
     MOVE.B      #$42, (A1)+     * LOAD 'B' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
@@ -95,7 +97,10 @@ LOAD_TO_PRINT_SUB
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
 
-
+NOT_SUB
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
 *~Font name~Courier New~
 *~Font size~10~
 *~Tab type~1~

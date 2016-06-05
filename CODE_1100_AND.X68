@@ -37,7 +37,10 @@ AND
     CMP.B       #2, _SIZE
     BEQ         AND_LONG
 MULS
-
+    MOVE.W      (A4), D5
+    BTST.L      #8, D5
+    BEQ         NOT_MULS_AND
+    
     MOVE.B      #$4D, (A1)+     * LOAD 'M' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$55, (A1)+     * LOAD 'U' INTO A1
@@ -119,6 +122,10 @@ LOAD_TO_PRINT_AND
     RTS                         * GO BACK TO MAIN
 
 
+NOT_MULS_AND
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
 
 
 

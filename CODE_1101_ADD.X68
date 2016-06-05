@@ -36,8 +36,9 @@ ADD_A
     BRA         ADDA_SIZE
     
 ADD_SIZE
-
-    
+    MOVE.W      (A4), D5
+    BTST.L      #8, D5
+    BEQ         NOT_ADD
     CMP.B       #0, _SIZE
     BEQ         ADD_BYTE
     
@@ -83,16 +84,10 @@ ADDA_WORD
     MOVE.B      #$57, (A1)+     * LOAD 'W' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
     
-*    MOVE.W      #4, _SPACES
-*    JSR         ADD_SPACES
-    
     BRA         ADDA_EA_SOURCE
 ADDA_LONG
     MOVE.B      #$4C, (A1)+     * LOAD 'L' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
-    
-*    MOVE.W      #4, _SPACES
-*    JSR         ADD_SPACES
     
     BRA         ADDA_EA_SOURCE
     
@@ -158,13 +153,19 @@ ADDA_EA_SOURCE
     
 LOAD_TO_PRINT_ADD
     MOVE.W      #4, _SPACES
-
+    
     JSR         ADD_SPACES
     JSR         DECODE_MAIN 
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
+
+NOT_ADD
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
 
 
 *~Font name~Courier New~

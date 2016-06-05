@@ -30,7 +30,7 @@ CODE_0100_MOVEM     EQU $1BF0
 CODE_0101_ADDQ      EQU $1D90                              *
 CODE_0110_BCC       EQU $1EF0
 CODE_0111_MOVEQ     EQU $1E60                              *
-CODE_1000_OR        EQU $2060
+CODE_1000_OR        EQU $2040
 CODE_1001_SUB       EQU $2170                              *
 CODE_1011_CMP       EQU $2260                              *
 CODE_1101_ADD       EQU $2320                              *
@@ -73,6 +73,8 @@ HTA_SIZE            EQU $104D       *USED BY CONVERT_HTA
 HTA_LEADING_ZEROS   EQU $1056       *USED BY CONVERT_HTA
 
 _SPACES             EQU $102C
+
+
 
 
 
