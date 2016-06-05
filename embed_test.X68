@@ -21,7 +21,7 @@ begin		EQU	$00007000	* ORG and END address
 *
                 NOT.B   D2  
 *
-                EXT.B   D2  
+*                EXT.B   D2  
 *
 *                NBCD.B    $1,D2  
 *
@@ -336,6 +336,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 
