@@ -13,10 +13,12 @@ begin		EQU	$00007000	* ORG and END address
 
 		ORG	begin
 
-                CMPA.W    A1, A2
+                CMPA.L    A1, A2
+                CMPA.W    $12000, A2
+                EOR.W     D0,D1
                 CMP.L     D0, D1
                 CMP.L     #$222020, D1
-                EOR       D1, D3      
+                EOR.L       D1, D3      
 
                 BCC	compares		
 		BGT	compares		
@@ -24,7 +26,9 @@ begin		EQU	$00007000	* ORG and END address
                 *BCC     $0FF000
                 BCC     test
 test
-                BCC     test
+                BCC     COMPARES
+                BRA     COMPARES
+                BNE     COMPARES
                 ADDI.B      #$11, D3
                 ADDI.W      #$1234,D1
                 ADDI.L      #$12CDEF43,D2
@@ -289,6 +293,8 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
+
 
 
 

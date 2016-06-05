@@ -54,6 +54,7 @@ CODE_1011_CMP_START
     CMP.B       #2, _SIZE
     BEQ         CMP_LONG
 
+    BRA         NOT_CMP
 CMP_BYTE
     MOVE.B      #$42, (A1)+     * LOAD 'B' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
@@ -82,6 +83,8 @@ LOAD_TO_PRINT_OP_CODE
 
 NOT_CMP
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
 
 
 

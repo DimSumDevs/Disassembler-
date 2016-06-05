@@ -28,7 +28,7 @@ CHOOSE_CODE
     BEQ BLE
     
     *NOT VALID OPCODE, SO RETURN
-    BRA RETURN_BCC
+    BRA NOT_BCC
 
 BCC   
 * put BCC into A1
@@ -149,6 +149,12 @@ BCC_PRINT
     BRA RETURN_BCC
 RETURN_BCC
     RTS
+
+NOT_BCC
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
+
 
 
 *~Font name~Courier New~
