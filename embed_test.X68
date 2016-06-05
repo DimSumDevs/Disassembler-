@@ -12,6 +12,14 @@ begin		EQU	$00007000	* ORG and END address
 * ORG the program so that it straddles the address boundary $00007FFF to $00008000
 
 		ORG	begin
+		ADD.B      $12,D3
+                ADD.L      $1B23,D3
+                ADD.W      $8AD99,D3
+		ADD.B      D3,$13
+                ADD.B      D3,$14
+                ADD.B      D3,$15
+
+                ADD.W      D3, $12
                 ADDX.W  d3,D4
                 ADD.W   d3,D4
                 add.w   D1, (A4)
@@ -83,13 +91,6 @@ test
 
                 SUB.B      D3,$12
                 ADDA.W     $2222,A2
-                ADD.B      D3,$13
-                ADD.B      D3,$14
-                ADD.B      D3,$15
-                ADD.B      $12,D3
-                ADD.L      $1B23,D3
-                ADD.W      $8AD99,D3
-                ADD.W      D3, $12
                 ADDA.W     $12,A3
                 AND.B      $1200, D3
                 AND.W      $1200, D3
@@ -338,6 +339,8 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
+
 
 
 *~Font name~Courier New~
