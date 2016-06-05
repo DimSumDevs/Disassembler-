@@ -12,12 +12,16 @@ begin		EQU	$00007000	* ORG and END address
 * ORG the program so that it straddles the address boundary $00007FFF to $00008000
 
 		ORG	begin
+		MOVEM.W D1-A2, #$1111
+		ORI     #$1,CCR
+   
                 ADDX.W  d3,D4
                 ADD.W   d3,D4
                 add.w   D1, (A4)
                 NEGX.B  D5
                 NOP
-                MOVEM.W (400,A3),D4
+                
+       
 
                 NEG.B    D2  
 *
@@ -338,6 +342,7 @@ compares        CMP.B	(A3),D5
                 NOP
 *RTS
                 NOP
+
 
 
 
