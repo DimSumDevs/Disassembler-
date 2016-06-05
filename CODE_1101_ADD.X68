@@ -36,9 +36,9 @@ ADD_A
     BRA         ADDA_SIZE
     
 ADD_SIZE
-    MOVE.W      (A4), D5
-    BTST.L      #8, D5
-    BEQ         NOT_ADD
+    CMP.B       #3, _SIZE
+    BEQ         ADD_A
+    
     CMP.B       #0, _SIZE
     BEQ         ADD_BYTE
     
@@ -48,8 +48,7 @@ ADD_SIZE
     CMP.B       #2, _SIZE
     BEQ         ADD_LONG
     
-    CMP.B       #3, _SIZE
-    BEQ         ADD_A
+
     
 
     
@@ -92,7 +91,7 @@ ADDA_LONG
     BRA         ADDA_EA_SOURCE
     
 ADD_DECODE
-    
+
     MOVE.W      (A4),D3
     BTST.L      #8, D3
     BNE         ADD_DN_SOURCE
@@ -166,6 +165,7 @@ NOT_ADD
     MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
     JSR PRINT_NOP_DATA
     RTS
+
 
 
 *~Font name~Courier New~
