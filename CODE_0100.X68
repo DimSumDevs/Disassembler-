@@ -63,7 +63,7 @@ LEA_CODE
     
 INDICATE_JSR
     MOVE.W      (A4), D5
-    BTST.L      #7, 0
+    BTST.L      #7, D5
     BNE         INVALID_0100
 
 JSR_CODE

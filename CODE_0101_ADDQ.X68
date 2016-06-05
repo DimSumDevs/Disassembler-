@@ -8,7 +8,7 @@
 
     CLR.W       D1              * RESET CHAR COUNT
     JSR     PRINT_MEMORY_ADDRESS *PRINT THE MEMORY ADDRESS OF THE OPCODE
-    
+ 
     
     
     MOVE.W      (A4),D3         * SIZE
@@ -45,6 +45,8 @@
     CMP.B       #2, _SIZE
     BEQ         ADDQ_LONG
     
+    BRA         NOT_ADDQ
+    
 ADDQ_BYTE
     MOVE.B      #$42, (A1)+     * LOAD 'B' INTO A1[4]
     ADD.W       #1, D1          * INC CHAR COUNT
@@ -59,6 +61,10 @@ ADDQ_LONG
     BRA         ADD_Q_DECODE
 
 ADD_Q_DECODE
+    MOVE.W      (A4), D3
+    BTST.L      #8, D3
+    BNE         NOT_ADDQ
+    
     MOVE.W      #3, _SPACES
     JSR         ADD_SPACES  
 
@@ -83,8 +89,12 @@ LOAD_TO_PRINT_ADDQ
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
 
-
+NOT_ADDQ
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
     * Give D4 value at A4
+
 
 
 *~Font name~Courier New~

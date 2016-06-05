@@ -36,6 +36,9 @@ OR
     BEQ         OR_LONG
 
 DIVU
+    MOVE.W      (A4), D3
+    BTST.L      #8, D3
+    BNE         NOT_DIVU_OR
     MOVE.B      #$44, (A1)+     * LOAD 'D' INTO A1
     ADD.W       #1, D1          * INC CHAR COUNT
     MOVE.B      #$49, (A1)+     * LOAD 'I' INTO A1
@@ -118,6 +121,12 @@ LOAD_TO_PRINT_OR
     MOVE.B      #0, D0          * Move (Task)14 into D0 for Trap 15
     TRAP        #15             * PRINT WHAT IS AT A1, 0 - D1.B
     RTS                         * GO BACK TO MAIN
+
+NOT_DIVU_OR
+    MOVEA.L     A1LOC, A1       * RESET A1 TO START OF ADDR
+    JSR PRINT_NOP_DATA
+    RTS
+
 
 
 *~Font name~Courier New~
